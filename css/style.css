@@ -81,6 +81,15 @@ body {
   display: none;
 }
 
+/* Hero Section */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-image: url("../picture/bg-3.jpg");
+  background-repeat: no-repeat;
+}
 /* Media Querties */
 
 /* Laptop */
