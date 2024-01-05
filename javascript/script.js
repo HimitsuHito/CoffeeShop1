@@ -17,12 +17,17 @@ document.querySelector("#search-button").onclick = (e) => {
   e.preventDefault();
 };
 
-// klik diluar sidebar untuk menghilangkan nav
+// klik diluar elemen
 
-const hamburger = document.querySelector("#hamburger-menu");
+const hm = document.querySelector("#hamburger-menu");
+const sb = document.querySelector("#search-button");
 
 document.addEventListener("click", function (e) {
-  if (!hamburger.contains(e.target) && !navbarNav.contains(e.target)) {
+  if (!hm.contains(e.target) && !navbarNav.contains(e.target)) {
     navbarNav.classList.remove("active");
+  }
+
+  if (!sb.contains(e.target) && !searchFrom.contains(e.target)) {
+    searchFrom.classList.remove("active");
   }
 });
