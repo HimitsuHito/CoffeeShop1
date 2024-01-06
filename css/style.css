@@ -117,13 +117,17 @@ body {
 /* Shopping cart */
 .shopping-cart {
   color: var(--bg);
-  position: absolute;
   top: 100%;
-  right: 0;
+  right: -100%;
   height: 100vh;
   width: 35rem;
   padding: 0 1.5rem;
   background-color: #fff;
+  position: absolute;
+  transition: 0.3s;
+}
+.shopping-cart.active {
+  right: 0;
 }
 
 .shopping-cart .cart-item {
@@ -337,7 +341,7 @@ body {
   padding: 0.8rem;
   color: var(--primary);
 }
-.products .product-stars .star {
+.products .product-stars .star-full {
   fill: var(--primary);
 }
 
@@ -418,6 +422,71 @@ footer .links a {
 footer .credit {
   font-size: 0.8rem;
 }
+
+/* Modal Box */
+/* Item detail */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.modal-container {
+  position: relative;
+  background-color: #fefefe;
+  color: var(--bg);
+  margin: 15% auto;
+  padding: 1.2rem;
+  border: 1px solid #666;
+  width: 80%;
+  animation: slideToBottom, 5s;
+}
+/* modal animation */
+@keyframes slideToBottom {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opactiy: 1;
+  }
+}
+.modal-container .close-icon {
+  position: absolute;
+  right: 1rem;
+}
+.modal-content {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.modal-content img {
+  height: 18rem;
+  margin-right: 1rem;
+  margin-bottom: 2rem;
+}
+.modal-content p {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  margin-top: 1.2rem;
+}
+.modal-content a {
+  display: flex;
+  gap: 1rem;
+  width: 12rem;
+  background-color: var(--primary);
+  color: #fff;
+  margin-top: 1rem;
+  padding: 0.8rem 1.6rem;
+}
+.modal-content a span {
+  margin-top: 2px;
+}
 /* Media Querties */
 
 /* Laptop */
@@ -494,6 +563,9 @@ footer .credit {
   }
   .contact .row form {
     padding-top: 0;
+  }
+  .modal-content {
+    flex-wrap: wrap;
   }
 }
 
