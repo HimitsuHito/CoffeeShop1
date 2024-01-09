@@ -22,10 +22,20 @@ document.addEventListener("alpine:init", () => {
       },
       {
         id: 5,
-        name: "Sumatre Madheling",
+        name: "Sumatera Madheling",
         img: "5.jpeg",
         price: 30000,
       },
     ],
   }));
 });
+
+// construct price
+
+const rupiah = (number) => {
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0,
+  }).format(number);
+};
