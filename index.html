@@ -11,8 +11,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap"
+      <href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap"
       rel="stylesheet"
     />
     <!-- mystyle -->
@@ -22,7 +21,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
      
     <!-- app -->
-    <script src="src/app.js"></script>
+    <script src="src/app.js" async></script>
 
   </head>
 
@@ -89,16 +88,19 @@
             </div></template>
             <h4 x-show="!$store.cart.items.length" style="margin-top: 2px;">Cart is Empty</h4>
             <h4 x-show="$store.cart.items.length">Total : <span x-text="rupiah($store.cart.total)"></span></h4>
+        <!-- form shopping cart -->
             <div class="form-container"  x-show="$store.cart.items.length">
               <form action="" id="checkoutForm">
+                <input type="hidden" name="items" x-model="JSON.stringfly($store.cart.items)">
+              <input type="hidden" name="total" x-model="$store.cart.total"> 
                 <h5>Customer Detail</h5>
-                <label for="name"><span>Name</span>
+                <label for="name"><span>Name </span>
                 <input type="text" name="name" id="name"></label>
                 <label for="email"><span>E-mail</span>
                   <input type="text" name="email" id="email"></label>
                   <label for="phone"><span>Phone</span>
                     <input type="text" name="phone" id="phone" autocomplete="off"></label>
-                    <button class="checkout-button" type="submit" id="checkout-button"value="checkout">Checkout</button>
+                    <button class="checkout-button disabled" type="submit" id="checkout-button"value="checkout">Checkout</button>
               </form>
             </div>
       </div>
