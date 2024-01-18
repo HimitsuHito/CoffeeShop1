@@ -117,12 +117,12 @@ checkoutButton.addEventListener("click", function (e) {
 // format pesan whatsapp
 const formatMessage = (obj) => {
   return `Data Customer 
-  nama : ${obj.name}
+  Nama : ${obj.name}
   Email: ${obj.email}
   No HP : ${obj.phone}
   Data Pesanan
   ${JSON.parse(obj.items).map(
-    (item) => `${item.name}($item.quantityx ${rupiah(item.total)} \n`
+    (item) => `${item.name}(${item.quantity} x ${rupiah(item.total)} \n`
   )}
   TOTAL : ${rupiah(obj.total)}
    Terima Kasih. `;
